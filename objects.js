@@ -8,5 +8,6 @@ const Object = {
 
 const {value, id, name, serName} = Object;
 
+
 console.log(Object.id);
 console.log(id);
