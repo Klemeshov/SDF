@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: goldenrod;
+    padding: 24px;
+}
+
+.logo {
+    font-size: 36px;
+}
+
+.img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.inputContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
+    input {
+        width: 356px;
+        height: 32px;
+    }
+}
