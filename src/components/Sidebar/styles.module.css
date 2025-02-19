@@ -1,0 +1,28 @@
+.sidebar{
+    width: 200px;
+    background: #f4f4f4;
+    padding: 40px;
+    margin-top: 80px;
+}
+
+.Items{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 3px;
+    transition: background 0.3s;
+}
+
+.Items:hover{
+    background: #ddd;
+}
+
+.active{
+    background: "red";
+    font-weight: bold;
+}
+
+.displayText{
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
