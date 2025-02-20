@@ -1,5 +1,4 @@
 import s from './styles.module.css';
-import { ImExit } from "react-icons/im";
 import { FaSearch } from "react-icons/fa";
 
 export const Header = () => {
@@ -12,7 +11,8 @@ export const Header = () => {
                     <FaSearch className={s.searchIcon} />
                 </div>
                 <div className={s.img_container}>
-                    <ImExit className={s.img}/>
+                    <img className={s.avatar}
+                         src="https://sun29-1.userapi.com/impg/_BF8QlqlVGmgLtoTfsNsu3PwcNgMXp6XTMCQEg/oXnuxqnBt2Y.jpg?size=1280x720&quality=95&sign=ec9a92eb8ece3c5854550de03bf31351&type=album"/>
                 </div>
             </div>
         </div>
