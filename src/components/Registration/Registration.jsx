@@ -14,7 +14,7 @@ export const Registration = () => {
 
     const onChange = (e) => {
         const {name, value } = e.target;
-        console.log(e.target);
+
         setStatus({...status, [name]: value});
         setEmpty({...empty, [name]: false});
     }
