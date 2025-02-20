@@ -1,0 +1,22 @@
+.container {
+    position: relative;
+    display: flex;
+    border: white 1px solid;
+    height: 400px;
+    justify-content: flex-start;
+    gap: 20px
+}
+
+.elem {
+    border: 1px green solid;
+    padding: 20px;
+}
+
+.last {
+    position: absolute;
+    border: 1px red solid;
+    background: red;
+    padding: 20px;
+    top: 0;
+    left: 0;
+}
