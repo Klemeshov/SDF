@@ -28,7 +28,6 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-}
 
 .Items:hover{
     background: #424242;
