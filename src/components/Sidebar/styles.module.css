@@ -1,28 +1,35 @@
-.sidebar{
-    width: 200px;
-    background: #f4f4f4;
-    padding: 40px;
-    margin-top: 80px;
+.active{
+    background: #8a3434;
 }
 
 .Items{
+    font-size: 40px;
     cursor: pointer;
     padding: 10px;
     border-radius: 3px;
     transition: background 0.3s;
+    color: white;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar{
+    width: 400px;
+    background: #141414;
+    padding: 20px;
+    margin-top: 30px;
+    margin-left: 10px;
+    border: 10px solid blue;
+    border-top: 10px solid white;
+    border-bottom: 10px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 .Items:hover{
-    background: #ddd;
-}
-
-.active{
-    background: "red";
-    font-weight: bold;
-}
-
-.displayText{
-    margin-top: 20px;
-    font-size: 20px;
-    font-weight: bold;
+    background: #424242;
 }

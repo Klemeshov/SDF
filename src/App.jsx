@@ -1,6 +1,10 @@
+import s from './styles.module.css';
 import { useState } from "react";
 import { Header } from "./components/Header";
 import { Sidebar } from "./components/Sidebar";
+import { Counter } from "./components/Counter";
+import { Registration } from "./components/Registration";
+
 
 const Items = ["Me", "Zxc", "Sdf", "Out"];
 
@@ -10,8 +14,9 @@ export const App = () => {
         <div>
             <Header />
             <Sidebar page={page} setPage={setPage} Items={Items} />
-            <div> Нажато : {page}
-            </div>
+            {page === Items[0] && <Counter />}
+            {page === Items[1] && <Registration />}
+            <div className={s.selection}> Нажато : {page}</div>
         </div>
     )
 }
