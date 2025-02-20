@@ -18,12 +18,7 @@ export const Registration = () => {
         setStatus({...status, [name]: value});
         setEmpty({...empty, [name]: false});
     }
-
-    const Errors ={
-        email: !status.email,
-        password: !status.password,
-    }
-
+    
     const onSubmit = () => {
         let errors = {
             email: null,
