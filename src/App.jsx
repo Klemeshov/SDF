@@ -13,7 +13,7 @@ import {FlexTest} from "./components/FlexTest";
 import {ClassComponent} from "./components/ClassComponent/ClassComponent.jsx";
 import {News} from "./components/News/index.js";
 import { PiNewspaperClippingLight } from "react-icons/pi";
-import { Friends } from "./components/Friends/friends.jsx";
+import { Friends } from "./components/Friends/Friends.jsx";
 
 const Items = [
     {name: "Clicker", icon: <MdAdsClick/>},
