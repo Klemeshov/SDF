@@ -10,7 +10,7 @@ export const getNews = () => {
                 },
                 {
                     id: 2,
-                    name: 'Dmitriy Klemeshov',
+                    name: 'Zxc Monstr',
                     text: 'А я гей',
                     likesCounter: 9999
                 },

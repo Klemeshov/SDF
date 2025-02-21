@@ -14,11 +14,10 @@ export const Registration = () => {
 
     const onChange = (e) => {
         const {name, value } = e.target;
-
         setStatus({...status, [name]: value});
         setEmpty({...empty, [name]: false});
     }
-    
+
     const onSubmit = () => {
         let errors = {
             email: null,

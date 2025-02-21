@@ -13,6 +13,7 @@ import {FlexTest} from "./components/FlexTest";
 import {ClassComponent} from "./components/ClassComponent/ClassComponent.jsx";
 import {News} from "./components/News/index.js";
 import { PiNewspaperClippingLight } from "react-icons/pi";
+import { Friends } from "./components/Friends/friends.jsx";
 
 const Items = [
     {name: "Clicker", icon: <MdAdsClick/>},
@@ -20,7 +21,8 @@ const Items = [
     {name: "Form2", icon: <SiFusionauth/>},
     {name: "FlexTest", icon: <LuLayoutDashboard/>},
     {name: "ClassComponent", icon: <LuLayoutDashboard/>},
-    {name: "News", icon: <PiNewspaperClippingLight/>}
+    {name: "News", icon: <PiNewspaperClippingLight/>},
+    {name: "Friends", icon: <PiNewspaperClippingLight/>},
 ];
 
 export const App = () => {
@@ -38,6 +40,7 @@ export const App = () => {
                     {page === Items[3].name && <FlexTest/>}
                     {page === Items[4].name && <ClassComponent name="blaal"/>}
                     {page === Items[5].name && <News />}
+                    {page === Items[6].name && <Friends />}
                 </div>
             </div>
         </div>
