@@ -3,6 +3,20 @@ import {getNews} from "../../api/news/requests.js";
 import { AiOutlineLike } from "react-icons/ai";
 import s from './styles.module.css';
 
+const Post = ({ post }) => {
+    const {id, name, text, likesCounter} = post;
+    return (
+        <div key={id} className={s.ItemContainer}>
+            <div className={s.name}>{name}</div>
+            <div className={s.text}>{text}</div>
+            <div className={s.likesContainer}>
+                <AiOutlineLike/>
+                {likesCounter}
+            </div>
+        </div>
+    )
+}
+
 export const News = () => {
     const [news, setNews] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -19,16 +33,9 @@ export const News = () => {
 
     return (
         <div className={s.container}>
-            {news.map(({id, name, text, likesCounter}) => {
+            {news.map((post) => {
                 return (
-                    <div key={id} className={s.ItemContainer}>
-                        <div className={s.name}>{name}</div>
-                        <div className={s.text}>{text}</div>
-                        <div className={s.likesContainer}>
-                            <AiOutlineLike/>
-                            {likesCounter}
-                        </div>
-                    </div>
+                    <Post post={post} key={post.id} />
                 );
             })}
         </div>

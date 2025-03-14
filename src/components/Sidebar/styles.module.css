@@ -13,7 +13,7 @@
     }
 }
 
-.active{
+.active {
     background: rgb(92, 92, 92);
 
     &:hover {

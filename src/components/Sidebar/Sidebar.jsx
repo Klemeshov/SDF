@@ -1,20 +1,19 @@
 import s from './styles.module.css';
+import {NavLink} from "react-router";
 
 
-export const Sidebar = ({page, setPage, Items}) => {
+export const Sidebar = ({Items}) => {
     return (
         <div className={s.sidebar}>
             {Items.map((value) => {
                 return (
-                    <div
-                        key={value.name}
-                        className={s.Items + " " + (page === value.name ? s.active : "")}
-                        onClick={() => {
-                            setPage(value.name)
-                        }}>
+                    <NavLink key={value.name} to={value.url} className={({isActive }) => {
+                        if (isActive) return s.active + ' ' + s.Items;
+                        return s.Items
+                    }}>
                         {value.icon}
                         {value.name}
-                    </div>
+                    </NavLink>
                 )
             })}
 

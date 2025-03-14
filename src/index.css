@@ -8,3 +8,9 @@ body {
     background: #141414;
     color: white;
 }
+
+
+a {
+    color: white;
+    text-decoration: none;
+}
