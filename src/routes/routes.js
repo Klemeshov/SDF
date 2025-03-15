@@ -6,4 +6,5 @@ export const routes = {
     classComponents: '/class-components',
     news: '/news',
     friends: '/friends',
+    friendById: '/friend/:id'
 }
