@@ -21,8 +21,6 @@ export const AppRoutes = () => {
             <Route path={routes.friends} element={<Friends/>}/>
             <Route path={routes.news} element={<News/>}/>
             <Route path={routes.friendById} element={<FriendPage />}/>
-
-
             <Route path="*" element={<div>404 page not found</div>}/>
         </Routes>
     );
