@@ -4,7 +4,7 @@ import {getFriends} from "../../api/friends/requests.js";
 import {NavLink, useSearchParams} from "react-router";
 import {routes} from "../../routes/routes.js";
 
-export const Friends = () => {
+const Friends = () => {
     const [friends, setFriends] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [params] = useSearchParams();
@@ -15,8 +15,9 @@ export const Friends = () => {
     useEffect(() => {
         setIsLoading(true);
         getFriends().then((value) => {
-            setIsLoading(false);
             setFriends(value);
+        }).finally(() => {
+            setIsLoading(false);
         });
     }, []);
 
@@ -44,3 +45,5 @@ export const Friends = () => {
         </div>
     );
 };
+
+export default Friends;
