@@ -1,22 +1,20 @@
 class A {
-    constructor(str) {
-        console.log('constructor A', str)
-    }
+  constructor(str) {
+    console.log('constructor A', str);
+  }
 
-    render(){}
+  render() {}
 
-    draw() {
-        const a = this.render();
-        console.log(a);
-    }
-
-
+  draw() {
+    const a = this.render();
+    console.log(a);
+  }
 }
 
 class B extends A {
-    render() {
-        return 'Я рисуюсь'
-    }
+  render() {
+    return 'Я рисуюсь';
+  }
 }
 
 const b = new B();
