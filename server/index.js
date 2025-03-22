@@ -1,14 +1,15 @@
-const express = require('express');
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
+import db from './configs/db.js';
 
 const app = express();
-const port = 3000;
+const port = Number(process.env.PORT) || 3000;
 
-app.use(cors(
-  {
+app.use(
+  cors({
     origin: 'http://localhost:5173'
-  }
-))
+  })
+);
 
 app.get('/posts', (req, res) => {
   res.json([
@@ -33,6 +34,23 @@ app.get('/posts', (req, res) => {
   ]);
 });
 
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
-})
+app.get('/users', async (req, res) => {
+  const data = await db.any(`
+      SELECT id, email, first_name, avatar_url
+      FROM users
+  `);
+
+  res.json(data);
+});
+
+(async () => {
+  try {
+    await db.any(`select CURRENT_TIMESTAMP`);
+    console.log('Database Connected');
+    app.listen(port, () => {
+      console.log(`Server started on port ${port}`);
+    });
+  } catch (err) {
+    console.error(err);
+  }
+})();
