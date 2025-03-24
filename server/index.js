@@ -11,36 +11,46 @@ app.use(
   })
 );
 
-app.get('/posts', (req, res) => {
-  res.json([
-    {
-      id: 1,
-      name: 'Yuriy Klemeshov',
-      text: 'Я дотер',
-      likesCounter: 5
-    },
-    {
-      id: 2,
-      name: 'Zxc Monstr',
-      text: 'А я гей',
-      likesCounter: 9999
-    },
-    {
-      id: 3,
-      name: 'Ivan Ivanov',
-      text: 'Зачем я сюда зашел',
-      likesCounter: -1
-    }
-  ]);
-});
-
 app.get('/users', async (req, res) => {
-  const data = await db.any(`
-      SELECT id, email, first_name, avatar_url
-      FROM users
-  `);
+  const query = `select users.id,
+                        users.email,
+                        users.first_name,
+                        users.second_name,
+                        users.created_at,
+                        photos.url as avatar_url
+                 from users
+                          left join photos on users.avatar = photos.id;`;
+
+  const data = await db.any(query);
 
   res.json(data);
+});
+
+app.get('/posts', async (req, res) => {
+  const query = `
+      SELECT posts.id,
+             posts.user_id,
+             posts.text,
+             posts.created_at,
+             COALESCE(
+                     json_agg(
+                             json_build_object(
+                                     'url', photos.url,
+                                     'id', photos.id
+                             )
+                     ) FILTER(WHERE photos.id IS NOT NULL),
+                     '[]'
+             ) as photos
+      FROM posts
+               LEFT JOIN photos_posts ON photos_posts.post_id = posts.id
+               LEFT JOIN photos ON photos.id = photos_posts.photo_id
+      GROUP BY posts.id
+      ORDER BY posts.created_at DESC
+  `;
+
+  const data = await db.any(query);
+
+  return res.json(data);
 });
 
 (async () => {
