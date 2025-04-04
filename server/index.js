@@ -55,7 +55,9 @@ app.get('/posts', async (req, res) => {
 
   const data = await db.any(query);
 
-  return res.json(data);
+  setTimeout(() => {
+    res.json(data);
+  }, 3000);
 });
 
 app.get('/profile', async (req, res) => {

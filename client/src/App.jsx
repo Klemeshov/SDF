@@ -10,6 +10,7 @@ import { PiNewspaperClippingLight } from 'react-icons/pi';
 import { BrowserRouter } from 'react-router';
 import { AppRoutes } from './routes/AppRoutes.jsx';
 import { routes } from './routes/routes.js';
+import { NewsProvider } from './contexts/NewsProvider.jsx';
 
 const Items = [
   { name: 'Clicker', icon: <MdAdsClick />, url: routes.counter },
@@ -26,15 +27,17 @@ export const App = () => {
 
   return (
     <BrowserRouter>
-      <div className={s.container}>
-        <Header />
-        <div className={s.main}>
-          <Sidebar page={page} setPage={setPage} Items={Items} />
-          <div className={s.content}>
-            <AppRoutes />
+      <NewsProvider>
+        <div className={s.container}>
+          <Header />
+          <div className={s.main}>
+            <Sidebar page={page} setPage={setPage} Items={Items} />
+            <div className={s.content}>
+              <AppRoutes />
+            </div>
           </div>
         </div>
-      </div>
+      </NewsProvider>
     </BrowserRouter>
   );
 };

@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.head {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.foot {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+
+  & > *:last-child {
+    margin-left: auto;
+  }
+}
+
+.footButton {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: #5a5a5a;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #4a4a4a;
+  }
+
+  &:active {
+    color: #323232;
+  }
+}
+
+.imagesContainer {
+  display: flex;
+  width: 100%;
+  gap: 4px;
+}
+
+.imageContainer {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}

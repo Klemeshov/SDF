@@ -1,32 +1,15 @@
-import { useEffect, useState } from 'react';
-import { getNews } from '../../api/news/requests.js';
-import { AiOutlineLike } from 'react-icons/ai';
+import { useContext, useEffect } from 'react';
 import s from './styles.module.css';
-
-const Post = ({ post }) => {
-  const { id, name, text, likesCounter } = post;
-  return (
-    <div key={id} className={s.ItemContainer}>
-      <div className={s.name}>{name}</div>
-      <div className={s.text}>{text}</div>
-      <div className={s.likesContainer}>
-        <AiOutlineLike />
-        {likesCounter}
-      </div>
-    </div>
-  );
-};
+import { Post } from '../Post/index.js';
+import { NewsContext } from '../../contexts/NewsContext.js';
 
 export const News = () => {
-  const [news, setNews] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const { isLoading, isIdle, news, fetchNews } = useContext(NewsContext);
 
   useEffect(() => {
-    setIsLoading(true);
-    getNews().then((res) => {
-      setIsLoading(false);
-      setNews(res);
-    });
+    if (isIdle) {
+      fetchNews();
+    }
   }, []);
 
   if (isLoading) return <div>Loading...</div>;
