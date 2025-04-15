@@ -8,6 +8,7 @@ import { FlexTest } from '../components/FlexTest/index.js';
 import { ClassComponent } from '../components/ClassComponent/ClassComponent.jsx';
 import { News } from '../components/News/index.js';
 import { FriendPage } from '../components/FriendPage/FriendPage.jsx';
+import { StyledComponentsTest } from '../components/StyledComponentsTest/StyledComponentsTest.jsx';
 
 const FriendsPage = lazy(() => import('../components/Friends/Friends.jsx'));
 
@@ -29,6 +30,7 @@ export const AppRoutes = () => {
       />
       <Route path={routes.news} element={<News />} />
       <Route path={routes.friendById} element={<FriendPage />} />
+      <Route path={routes.scTest} element={<StyledComponentsTest />} />
       <Route path="*" element={<div>404 page not found</div>} />
     </Routes>
   );
