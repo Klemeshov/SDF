@@ -1,8 +1,18 @@
 import s from './styles.module.css';
+import { useDispatch, useSelector } from 'react-redux';
 import { DECREMENT, INCREMENT } from '../../store/reducers/counterReducer.js';
-import { connect } from 'react-redux';
 
-const CounterComponent = ({ count, increment, decrement }) => {
+export const Counter2 = () => {
+  const count = useSelector((state) => state.count);
+  const dispatch = useDispatch();
+
+  const increment = () => {
+    dispatch({ type: INCREMENT });
+  };
+  const decrement = () => {
+    dispatch({ type: DECREMENT });
+  };
+
   return (
     <div className={s.counter}>
       <h2>Нажатий:{count}</h2>
@@ -15,14 +25,3 @@ const CounterComponent = ({ count, increment, decrement }) => {
     </div>
   );
 };
-
-const mapDispatchToProps = {
-  increment: () => ({ type: INCREMENT }),
-  decrement: () => ({ type: DECREMENT })
-};
-
-const mapStateToProps = (state) => ({
-  count: state.count
-});
-
-export const Counter = connect(mapStateToProps, mapDispatchToProps)(CounterComponent);

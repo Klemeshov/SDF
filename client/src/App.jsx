@@ -12,9 +12,12 @@ import { AppRoutes } from './routes/AppRoutes.jsx';
 import { routes } from './routes/routes.js';
 import { NewsProvider } from './contexts/NewsProvider.jsx';
 import { ThemeProvider as SCThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
+import { store } from './store/store.js';
 
 const Items = [
   { name: 'Clicker', icon: <MdAdsClick />, url: routes.counter },
+  { name: 'Clicker2', icon: <MdAdsClick />, url: routes.counter2 },
   { name: 'Form1', icon: <FaWpforms />, url: routes.form1 },
   { name: 'Form2', icon: <SiFusionauth />, url: routes.form2 },
   { name: 'FlexTest', icon: <LuLayoutDashboard />, url: routes.flexTest },
@@ -39,19 +42,21 @@ export const App = () => {
 
   return (
     <BrowserRouter>
-      <SCThemeProvider theme={theme}>
-        <NewsProvider>
-          <div className={s.container}>
-            <Header />
-            <div className={s.main}>
-              <Sidebar page={page} setPage={setPage} Items={Items} />
-              <div className={s.content}>
-                <AppRoutes />
+      <Provider store={store}>
+        <SCThemeProvider theme={theme}>
+          <NewsProvider>
+            <div className={s.container}>
+              <Header />
+              <div className={s.main}>
+                <Sidebar page={page} setPage={setPage} Items={Items} />
+                <div className={s.content}>
+                  <AppRoutes />
+                </div>
               </div>
             </div>
-          </div>
-        </NewsProvider>
-      </SCThemeProvider>
+          </NewsProvider>
+        </SCThemeProvider>
+      </Provider>
     </BrowserRouter>
   );
 };

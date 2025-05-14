@@ -9,6 +9,7 @@ import { ClassComponent } from '../components/ClassComponent/ClassComponent.jsx'
 import { News } from '../components/News/index.js';
 import { FriendPage } from '../components/FriendPage/FriendPage.jsx';
 import { StyledComponentsTest } from '../components/StyledComponentsTest/StyledComponentsTest.jsx';
+import { Counter2 } from '../components/Counter2/index.js';
 
 const FriendsPage = lazy(() => import('../components/Friends/Friends.jsx'));
 
@@ -16,6 +17,7 @@ export const AppRoutes = () => {
   return (
     <Routes>
       <Route path={routes.counter} element={<Counter />} />
+      <Route path={routes.counter2} element={<Counter2 />} />
       <Route path={routes.form1} element={<Registration />} />
       <Route path={routes.form2} element={<AuthForm />} />
       <Route path={routes.flexTest} element={<FlexTest />} />
